@@ -45,12 +45,12 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         // Match EXACT paths used by controllers
                         .requestMatchers(
-                                "/api/v1.0/status",
-                                "/api/v1.0/health",
-                                "/api/v1.0/register",
-                                "/api/v1.0/activate",
-                                "/api/v1.0/login",
-                                "/api/v1.0/test/public"
+                                "/status",
+                                "/health",
+                                "/register",
+                                "/activate",
+                                "/login",
+                                "/test/public"
                         ).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
