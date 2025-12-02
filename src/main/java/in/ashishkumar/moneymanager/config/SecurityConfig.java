@@ -46,7 +46,8 @@ public class SecurityConfig {
                                 "/health",
                                 "/register",
                                 "/activate",
-                                "/login"
+                                "/login",
+                                "/test/public"  // ← Add this line
                         ).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()

@@ -34,6 +34,7 @@ in\ashishkumar\moneymanager\controller\CategoryController.class
 in\ashishkumar\moneymanager\entity\ProfileEntity.class
 in\ashishkumar\moneymanager\service\ExpenseService.class
 in\ashishkumar\moneymanager\entity\ExpenseEntity.class
+in\ashishkumar\moneymanager\controller\TestController.class
 in\ashishkumar\moneymanager\controller\IncomeController.class
 in\ashishkumar\moneymanager\repository\IncomeRepository.class
 in\ashishkumar\moneymanager\controller\DashboardController.class
