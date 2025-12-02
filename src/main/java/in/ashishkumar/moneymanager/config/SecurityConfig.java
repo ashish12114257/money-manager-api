@@ -3,6 +3,7 @@ package in.ashishkumar.moneymanager.config;
 import in.ashishkumar.moneymanager.security.JwtRequestFilter;
 import in.ashishkumar.moneymanager.service.AppUserDetailsService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,6 +31,7 @@ import java.util.List;
 @EnableWebSecurity
 @EnableMethodSecurity
 @RequiredArgsConstructor
+@Slf4j
 public class SecurityConfig {
 
     private final AppUserDetailsService appUserDetailsService;
@@ -41,13 +43,14 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
+                        // Match EXACT paths used by controllers
                         .requestMatchers(
-                                "/status",
-                                "/health",
-                                "/register",
-                                "/activate",
-                                "/login",
-                                "/test/public"  // ← Add this line
+                                "/api/v1.0/status",
+                                "/api/v1.0/health",
+                                "/api/v1.0/register",
+                                "/api/v1.0/activate",
+                                "/api/v1.0/login",
+                                "/api/v1.0/test/public"
                         ).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
