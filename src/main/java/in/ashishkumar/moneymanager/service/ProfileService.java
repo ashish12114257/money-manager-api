@@ -63,7 +63,7 @@ public class ProfileService {
                     .password(passwordEncoder.encode(profileDTO.getPassword()))
                     .profileImageUrl(profileDTO.getProfileImageUrl())
                     .activationToken(UUID.randomUUID().toString())
-                    .isActive(false)
+                    .isActive(true)
                     .build();
 
             log.info("Saving profile to database...");
